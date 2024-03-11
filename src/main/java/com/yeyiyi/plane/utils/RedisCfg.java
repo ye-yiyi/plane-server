@@ -1,4 +1,4 @@
-package com.yeyiyi.server.plane.utils;
+package com.yeyiyi.plane.utils;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

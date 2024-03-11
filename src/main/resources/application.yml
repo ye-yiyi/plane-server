@@ -3,8 +3,7 @@
 server:
   tomcat:
     uri-encoding: UTF-8
-    max-threads: 2000
-    min-spare-threads: 30
+
   #tomcat启动的端口
   port: 8081
 
@@ -13,15 +12,16 @@ server:
     context-path: /appserver
 logging:
   level:
-    com.example.test.mapper: debug
+    com.yeyiyi.plane.mapper: debug
 
 
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/test
     username: root
     password: 123456
+    initialization-mode: always
   mvc:
     static-path-pattern: /static/**
   thymeleaf:
@@ -35,5 +35,5 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.example.test.entity
+  type-aliases-package: com.yeyiyi.plane.entity
 

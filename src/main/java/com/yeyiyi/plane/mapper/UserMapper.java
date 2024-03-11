@@ -1,6 +1,6 @@
-package com.yeyiyi.server.plane.mapper;
+package com.yeyiyi.plane.mapper;
 
-import com.yeyiyi.server.plane.entity.User;
+import com.yeyiyi.plane.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 

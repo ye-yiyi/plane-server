@@ -1,4 +1,4 @@
-package com.yeyiyi.server.plane.utils;
+package com.yeyiyi.plane.utils;
 
 import net.sf.json.JSONObject;
 import org.apache.http.HttpEntity;

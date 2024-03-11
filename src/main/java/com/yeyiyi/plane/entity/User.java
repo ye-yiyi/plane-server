@@ -1,4 +1,4 @@
-package com.yeyiyi.server.plane.entity;
+package com.yeyiyi.plane.entity;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.yeyiyi.server.plane.servie;
+package com.yeyiyi.plane.servie;
 
-import com.yeyiyi.server.plane.entity.User;
+import com.yeyiyi.plane.entity.User;
 
 public interface UserService {
 

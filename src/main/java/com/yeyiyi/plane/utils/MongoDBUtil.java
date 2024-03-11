@@ -1,4 +1,4 @@
-package com.yeyiyi.server.plane.utils;
+package com.yeyiyi.plane.utils;
 
 import com.mongodb.*;
 import com.mongodb.client.MongoDatabase;

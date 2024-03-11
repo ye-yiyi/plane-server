@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yeyiyi.server.plane.mapper.UserMapper">
+<mapper namespace="com.yeyiyi.plane.mapper.UserMapper">
 
-    <select id="getUser"  resultType="com.yeyiyi.server.plane.entity.User">
+    <select id="getUser"  resultType="com.yeyiyi.plane.entity.User">
         SELECT
             user_name userName,
             pass_word passWord
