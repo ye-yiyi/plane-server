@@ -1,4 +1,4 @@
-package com.yeyiyi.plane.servie;
+package com.yeyiyi.plane.service;
 
 import com.yeyiyi.plane.entity.User;
 

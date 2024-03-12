@@ -1,8 +1,8 @@
-package com.yeyiyi.plane.servie.impl;
+package com.yeyiyi.plane.service.impl;
 
 import com.yeyiyi.plane.entity.User;
 import com.yeyiyi.plane.mapper.UserMapper;
-import com.yeyiyi.plane.servie.UserService;
+import com.yeyiyi.plane.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

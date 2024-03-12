@@ -2,19 +2,15 @@ package com.yeyiyi.plane.controller;
 
 import com.yeyiyi.plane.entity.User;
 import com.yeyiyi.plane.utils.RedisCfg;
-import com.yeyiyi.plane.utils.RedisUtil;
-import com.yeyiyi.plane.servie.UserService;
+import com.yeyiyi.plane.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import redis.clients.jedis.Jedis;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.List;
 
 @Controller
 public class DemoController {
