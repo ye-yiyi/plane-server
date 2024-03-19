@@ -1,5 +1,8 @@
 package com.yeyiyi.plane.controller;
 
+import com.yeyiyi.plane.entity.Server;
+import com.yeyiyi.plane.service.CommonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,13 +21,21 @@ import java.util.Map;
 @RequestMapping("/common")
 public class CommonController {
 
+    @Autowired
+    private CommonService commonService;
 
 
 
-    @GetMapping("/test")
-    public List<Map<String,Object>> test(@RequestParam String dictType) {
+    @GetMapping("/getServerList")
+    public List<Server> getServerList() {
 
-        List<Map<String,Object>> data = new ArrayList<>();
-        return data;
+        List<Server> serverList = commonService.getServerList();
+        return serverList;
     }
+
+
+
+
+
+
 }
