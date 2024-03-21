@@ -1,12 +1,11 @@
 package com.yeyiyi.plane.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yeyiyi.plane.entity.Server;
 import com.yeyiyi.plane.service.CommonService;
+import com.yeyiyi.plane.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,12 +24,24 @@ public class CommonController {
     private CommonService commonService;
 
 
-
+    @CrossOrigin
     @GetMapping("/getServerList")
     public List<Server> getServerList() {
+        return commonService.getServerList();
+    }
 
-        List<Server> serverList = commonService.getServerList();
-        return serverList;
+    @CrossOrigin
+    @GetMapping("/linkGame")
+    public JSONObject linkGame(@RequestParam("gameName") String gameName, @RequestParam("serverId") String serverId) {
+        JSONObject ret = new JSONObject();
+        //生成唯一ID
+        String userId = CommonUtils.getUserId(serverId,gameName);
+
+        //连接至对应房间
+        commonService.linkGame(serverId,userId,gameName);
+
+        ret.put("userId",userId);
+        return ret;
     }
 
 

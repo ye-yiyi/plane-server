@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component(value ="userMapper")
+@Component(value ="commonMapper")
 public interface CommonMapper {
 
     List<Server> getServerList();
 
+    void linkGame(@Param("serverId") String serverId,@Param("userId") String userId,@Param("gameName") String gameName);
 }

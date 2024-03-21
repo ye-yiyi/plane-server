@@ -22,4 +22,9 @@ public class CommonServiceImpl implements CommonService {
     public List<Server> getServerList() {
         return mapper.getServerList();
     }
+
+    @Override
+    public void linkGame(String serverId, String userId, String gameName) {
+        mapper.linkGame(serverId,userId,gameName);
+    }
 }

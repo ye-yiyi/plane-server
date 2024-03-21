@@ -1,4 +1,4 @@
-package com.yeyiyi.plane.socket;
+package com.yeyiyi.plane.websocket;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

@@ -1,4 +1,4 @@
-package com.yeyiyi.plane.socket;
+package com.yeyiyi.plane.websocket;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -7,12 +7,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
-import io.netty.util.CharsetUtil;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -21,7 +16,7 @@ import javax.annotation.PostConstruct;
  * @date 2024/3/11 17:02
  * @description
  */
-@Component
+//@Component
 public class NettySocketServer {
     private final int port = 9000; // 指定服务端口
 
