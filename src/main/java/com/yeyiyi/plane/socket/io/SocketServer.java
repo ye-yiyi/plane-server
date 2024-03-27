@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
  * @date 2024/3/11 15:23
  * @description
  */
-//@Component
+@Component
 public class SocketServer {
     @Autowired
     private SocketServerConfig config;
@@ -30,6 +30,8 @@ public class SocketServer {
 
             server.start();
             System.out.println("Socket.IO server started on port " + socketConfig.getPort());
+            server.getAllNamespaces().iterator();
+
 
             try {
                 Thread.sleep(Integer.MAX_VALUE);
