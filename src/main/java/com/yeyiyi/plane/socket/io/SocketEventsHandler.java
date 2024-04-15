@@ -5,6 +5,7 @@ import com.corundumstudio.socketio.SocketIOServer;
 import com.yeyiyi.plane.entity.Server;
 import com.yeyiyi.plane.service.CommonService;
 import com.yeyiyi.plane.socket.io.handler.ServerHandler;
+import com.yeyiyi.plane.utils.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -45,7 +46,7 @@ public class SocketEventsHandler  {
 
 
     public void onChatMessage(SocketIOServer server) {
-        server.addEventListener("chat message", String.class, (client, data, ackRequest) -> {
+        server.addEventListener(Code.推送消息, String.class, (client, data, ackRequest) -> {
             // 处理聊天消息
             server.getBroadcastOperations().sendEvent("chat message", data);
 

@@ -5,6 +5,9 @@ import com.corundumstudio.socketio.SocketIONamespace;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.yeyiyi.plane.entity.Server;
 import com.yeyiyi.plane.service.CommonService;
+import com.yeyiyi.plane.utils.Code;
+import com.yeyiyi.plane.utils.MessageCode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +18,7 @@ import java.util.List;
  * @date 2024/3/11 16:46
  * @description
  */
+@Slf4j
 @Component
 public class ServerHandler {
 
@@ -33,20 +37,22 @@ public class ServerHandler {
 
 
     public void linkGame(SocketIONamespace server) {
-        server.addEventListener("link game", JSONObject.class, (client, data, ackRequest) -> {
+        server.addEventListener(Code.连接游戏, JSONObject.class, (client, data, ackRequest) -> {
             String userId = data.getString("userId");
             String gameName = data.getString("gameName");
-            System.out.println(gameName+"加入了这个房间");
-            server.getBroadcastOperations().sendEvent("chat message", gameName+"加入了这个房间");
+            log.info(gameName+"加入了这个房间");
+            //数据库更改当前房间人数
+
+            server.getBroadcastOperations().sendEvent(Code.推送消息, MessageCode.通知, gameName+"加入了这个房间");
 
         });
     }
 
 
     public void onChatMessage(SocketIONamespace server) {
-        server.addEventListener("chat message", String.class, (client, data, ackRequest) -> {
+        server.addEventListener(Code.推送消息, String.class, (client, data, ackRequest) -> {
             // 处理聊天消息
-            server.getBroadcastOperations().sendEvent("chat message", data);
+            server.getBroadcastOperations().sendEvent(Code.推送消息, data);
 
         });
     }
@@ -59,7 +65,7 @@ public class ServerHandler {
             String clientAddress = client.getHandshakeData().getAddress().toString();
 
             // 输出客户端的连接地址和会话ID
-            System.out.println(server.getName()+"客户端连接，地址：" + clientAddress + "，会话ID：" + client.getSessionId());
+            log.info(server.getName()+"客户端连接，地址：" + clientAddress + "，会话ID：" + client.getSessionId());
         });
     }
 
@@ -69,7 +75,7 @@ public class ServerHandler {
             String clientAddress = client.getHandshakeData().getAddress().toString();
 
             // 输出客户端的连接地址和会话ID
-            System.out.println(server.getName()+"客户端断开，地址：" + clientAddress + "，会话ID：" + client.getSessionId());
+            log.info(server.getName()+"客户端断开，地址：" + clientAddress + "，会话ID：" + client.getSessionId());
         });
     }
 
