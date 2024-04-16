@@ -10,4 +10,6 @@ public interface CommonService {
     List<Server> getServerList();
 
     void linkGame(String serverId, String userId, String gameName);
+
+    void closeGame(String userId);
 }

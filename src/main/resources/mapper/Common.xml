@@ -4,15 +4,21 @@
 
     <select id="getServerList"  resultType="com.yeyiyi.plane.entity.Server">
         SELECT
-            server_id serverId,
-            `server_name` serverName,
-            `server_code` serverCode,
-            server_status serverStatus
-         FROM server
+            s.server_id serverId,
+            s.`server_name` serverName,
+            s.`server_code` serverCode,
+            s.server_status serverStatus,
+            (select count(1) from server_user u where u.server_id = s.server_id) userNum
+         FROM server s
     </select>
 
     <insert id="linkGame">
         insert into server_user (user_id,server_id,game_name,create_time) values (#{userId},#{serverId},#{gameName},now())
+
+    </insert>
+
+    <insert id="closeGame">
+        delete from server_user where user_id = #{userId}
 
     </insert>
 

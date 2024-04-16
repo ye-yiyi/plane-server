@@ -37,10 +37,22 @@ public class CommonController {
         //生成唯一ID
         String userId = CommonUtils.getUserId(serverId,gameName);
 
-        //连接至对应房间
-        commonService.linkGame(serverId,userId,gameName);
+
 
         ret.put("userId",userId);
+        return ret;
+    }
+
+
+    @CrossOrigin
+    @GetMapping("/closeGame")
+    public JSONObject closeGame(@RequestParam("userId") String userId) {
+        JSONObject ret = new JSONObject();
+
+        commonService.closeGame(userId);
+
+        ret.put("code","1");
+        ret.put("desc","成功");
         return ret;
     }
 

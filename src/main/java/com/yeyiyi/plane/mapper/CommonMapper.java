@@ -13,4 +13,6 @@ public interface CommonMapper {
     List<Server> getServerList();
 
     void linkGame(@Param("serverId") String serverId,@Param("userId") String userId,@Param("gameName") String gameName);
+
+    void closeGame(@Param("userId")String userId);
 }

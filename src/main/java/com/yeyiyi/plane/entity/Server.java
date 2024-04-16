@@ -9,6 +9,7 @@ public class Server {
     private String serverName;
     private String serverCode;
     private String serverStatus;
+    private String userNum;
 
 
 }

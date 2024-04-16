@@ -27,4 +27,9 @@ public class CommonServiceImpl implements CommonService {
     public void linkGame(String serverId, String userId, String gameName) {
         mapper.linkGame(serverId,userId,gameName);
     }
+
+    @Override
+    public void closeGame(String userId) {
+        mapper.closeGame(userId);
+    }
 }
