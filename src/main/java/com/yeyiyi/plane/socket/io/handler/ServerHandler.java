@@ -15,6 +15,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +62,17 @@ public class ServerHandler {
     }
 
 
+    //接受字符串二进制
+    public void onPushBuffer(SocketIONamespace server) {
+        server.addEventListener("push", byte[].class, (client, data, ackRequest) -> {
+            // 接受字符串二进制
+            String receivedString = new String(data, StandardCharsets.UTF_8);
+            System.out.println("Received string: " + receivedString);
+
+        });
+    }
+
+
     public void onChatMessage(SocketIONamespace server) {
         server.addEventListener(Code.推送消息, String.class, (client, data, ackRequest) -> {
             // 处理聊天消息
@@ -68,6 +80,8 @@ public class ServerHandler {
 
         });
     }
+
+
 
 
 
